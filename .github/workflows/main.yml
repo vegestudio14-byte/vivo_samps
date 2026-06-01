@@ -1,0 +1,12 @@
+name: Compilador Cloud VIVO
+on: [push, workflow_dispatch]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build APK with Buildozer
+        uses: ArtemGovorov/buildozer-action@v1
+        with:
+          command: buildozer -v android debug

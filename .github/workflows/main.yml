@@ -13,5 +13,10 @@ jobs:
           pip3 install --user --upgrade Cython virtualenv
 
       - name: Build with Buildozer
+        encoding: utf-8
         run: |
           buildozer android debug
+        env:
+          BUILDOZER_ALLOW_ORG_TEST: "1"
+          # Esta línea fuerza a aceptar las licencias de Google automáticamente
+          AUTO_ACCEPT_AND_INSTALL_SDK: "y"
